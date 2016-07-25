@@ -1,0 +1,6 @@
+use_frameworks!
+target 'ComfortCells_Tests' do
+  pod 'ComfortCells', :path => '../'
+  
+  
+end
