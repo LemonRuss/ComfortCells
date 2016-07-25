@@ -24,7 +24,7 @@ pod "ComfortCells"
 
 ## Author
 
-Alex Lavrinenko, aleksiosdev@gmail.co,
+Alex Lavrinenko, aleksiosdev@gmail.com
 
 ## License
 
