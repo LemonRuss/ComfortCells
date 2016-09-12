@@ -11,39 +11,39 @@ import UIKit
 
 
 extension UITableView {
-  public func register<T: UITableViewCell> (cellClass: T.Type) {
-    registerClass(cellClass, forCellReuseIdentifier: cellClass.identifier())
+  public func register<T: UITableViewCell> (_ cellClass: T.Type) {
+    self.register(cellClass, forCellReuseIdentifier: cellClass.identifier())
   }
   
-  public func register<T: UITableViewCell>(nib: UINib, forClass cellClass: T.Type) {
-    registerNib(nib, forCellReuseIdentifier: cellClass.identifier())
+  public func register<T: UITableViewCell>(_ nib: UINib, forClass cellClass: T.Type) {
+    self.register(nib, forCellReuseIdentifier: cellClass.identifier())
   }
   
   public func dequeueReusableCell<T: UITableViewCell> (withClass cellClass: T.Type) -> T? {
-    return dequeueReusableCellWithIdentifier(cellClass.identifier()) as? T
+    return self.dequeueReusableCell(withIdentifier: cellClass.identifier()) as? T
   }
   
   public func dequeueReusableCell<T: UITableViewCell>(withClass cellClass:
-    T.Type, forIndexPath indexPath: NSIndexPath) -> T {
-    guard let cell = dequeueReusableCellWithIdentifier(
-      cellClass.identifier(), forIndexPath: indexPath) as? T else {
+    T.Type, forIndexPath indexPath: IndexPath) -> T {
+    guard let cell = self.dequeueReusableCell(
+      withIdentifier: cellClass.identifier(), for: indexPath) as? T else {
       fatalError("Error: cannot dequeue cell with identifier: \(cellClass.identifier()) " +
         "for index path: \(indexPath)")
     }
     return cell
   }
-  public func register<T: UITableViewHeaderFooterView>(headerFooterClass: T.Type) {
-    registerClass(headerFooterClass,
+  public func register<T: UITableViewHeaderFooterView>(_ headerFooterClass: T.Type) {
+    self.register(headerFooterClass,
                   forHeaderFooterViewReuseIdentifier: headerFooterClass.identifier())
   }
   
-  public func register<T: UITableViewHeaderFooterView>(nib: UINib,
+  public func register<T: UITableViewHeaderFooterView>(_ nib: UINib,
                        forHeaderFooterClass headerFooterClass: T.Type) {
-    registerNib(nib, forHeaderFooterViewReuseIdentifier: headerFooterClass.identifier())
+    self.register(nib, forHeaderFooterViewReuseIdentifier: headerFooterClass.identifier())
   }
   
   public func dequeueResuableHeaderFooterView
     <T: UITableViewHeaderFooterView>(withClass headerFooterClass: T.Type) -> T? {
-    return dequeueReusableHeaderFooterViewWithIdentifier(headerFooterClass.identifier()) as? T
+    return dequeueReusableHeaderFooterView(withIdentifier: headerFooterClass.identifier()) as? T
   }
 }

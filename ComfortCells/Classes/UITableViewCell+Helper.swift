@@ -10,12 +10,12 @@ import UIKit
 
 extension UITableViewCell {
   public class func identifier() -> String {
-    return String(NSStringFromClass(self).characters.split(".").last!)
+    return String(NSStringFromClass(self).characters.split(separator: ".").last!)
   }
 }
 
 extension UITableViewHeaderFooterView {
   public class func identifier() -> String {
-    return String(NSStringFromClass(self).characters.split(".").last!)
+    return String(NSStringFromClass(self).characters.split(separator: ".").last!)
   }
 }

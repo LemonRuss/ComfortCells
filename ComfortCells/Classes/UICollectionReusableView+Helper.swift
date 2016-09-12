@@ -11,6 +11,6 @@ import UIKit
 extension UICollectionReusableView {
   
   public class func defaultIdentifier() -> String {
-    return String(NSStringFromClass(self).characters.split(".").last!)
+    return String(NSStringFromClass(self).characters.split(separator: ".").last!)
   }
 }
